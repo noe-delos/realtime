@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "OpenAI Realtime Voice Chat",
-  description: "Talk with the OpenAI assistant using your voice",
+  title: "Tech invaders",
+  description: "Simulateur d'entretien d'embauche",
 };
 
 export default function RootLayout({

@@ -1,10 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unused-vars */
+
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Composant Button personnalisé
-const Button = ({ onClick, disabled, icon, className, children }) => {
+const Button = ({ onClick, disabled, icon, className, children }: any) => {
   return (
     <button
       onClick={onClick}
@@ -119,15 +123,15 @@ export default function Home() {
   const [isSessionActive, setIsSessionActive] = useState(false);
   const [isActivating, setIsActivating] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
-  const [speakingEntity, setSpeakingEntity] = useState(null); // 'user' ou 'assistant'
+  const [speakingEntity, setSpeakingEntity] = useState<any>(null); // 'user' ou 'assistant'
   const [userTranscript, setUserTranscript] = useState("");
   const [agentTranscript, setAgentTranscript] = useState("");
   const [jobPrompt, setJobPrompt] = useState("");
 
   // Références
-  const peerConnection = useRef(null);
-  const dataChannel = useRef(null);
-  const audioElement = useRef(null);
+  const peerConnection: any = useRef(null);
+  const dataChannel: any = useRef(null);
+  const audioElement: any = useRef(null);
 
   // Démarrer une nouvelle session
   async function startSession() {
@@ -207,7 +211,7 @@ export default function Home() {
         type: "answer",
         sdp: await sdpResponse.text(),
       };
-      await pc.setRemoteDescription(answer);
+      await pc.setRemoteDescription(answer as any);
 
       // Configurer les écouteurs d'événements pour le canal de données
       dc.onopen = () => {
@@ -261,7 +265,7 @@ export default function Home() {
 
     // Arrêter les pistes
     if (peerConnection.current) {
-      peerConnection.current.getSenders().forEach((sender) => {
+      peerConnection.current.getSenders().forEach((sender: any) => {
         if (sender.track) {
           sender.track.stop();
         }
@@ -279,7 +283,7 @@ export default function Home() {
   }
 
   // Gérer les événements du serveur
-  function handleServerEvent(event) {
+  function handleServerEvent(event: any) {
     console.log("Événement du serveur:", event.type);
 
     switch (event.type) {
