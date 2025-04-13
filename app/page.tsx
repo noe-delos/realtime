@@ -352,11 +352,11 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="w-full max-w-xl py-8"
+          className="w-full max-w-xl py-12"
         >
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold mb-2">
-              Simulation d'Entretien d'Embauche
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-2 pb-4">
+              Simulateur d'entretien.
             </h2>
             <p className="text-gray-500">
               {isSessionActive && "Conversation active - commencez à parler"}
@@ -382,7 +382,7 @@ export default function Home() {
                 value={jobPrompt}
                 onChange={(e) => setJobPrompt(e.target.value)}
                 placeholder="Ex: Vous recrutez pour un poste de développeur front-end React. Le candidat doit avoir 3 ans d'expérience et des connaissances en TypeScript..."
-                className="w-full p-4 border border-gray-300 rounded-lg shadow-sm focus:ring-[#052FFF] focus:border-[#052FFF] transition-all"
+                className="w-full resize-none text-sm placeholder:text-zinc-300 p-4 border border-gray-300 rounded-2xl border-border shadow-sm focus:ring-[#052FFF] focus:border-[#052FFF] transition-all"
                 rows={4}
                 disabled={isSessionActive}
               />
@@ -587,8 +587,8 @@ export default function Home() {
                 icon={<CloudLightningIcon />}
                 className={
                   isActivating
-                    ? "bg-gray-400 px-6 py-3 text-lg shadow-lg"
-                    : "bg-[#052FFF] hover:bg-[#001fd7] px-6 py-3 text-lg shadow-lg transition-all duration-300 hover:scale-105"
+                    ? "bg-gray-400 px-6 py-3 text-lg shadow-lg rounded-2xl"
+                    : "bg-[#052FFF] hover:bg-[#001fd7] px-6 py-3 text-lg shadow-lg rounded-2xl transition-all duration-300 hover:scale-105"
                 }
               >
                 {isActivating ? "Démarrage..." : "Démarrer l'entretien"}
